@@ -135,11 +135,75 @@ function removeCharacters(str, characters) {
 
 // 10. Products
 function products(arr) {
+    const product = arr.map((num, i) => {
+        const otherNums = arr.slice(0, i).concat(arr.slice((i + 1), (arr.length)));
+        console.log(otherNums);
+        return otherNums.reduce((acc, cur) => acc * cur);
+    });
+    return product;
+}
+// 3 * 9 * 4 = 108
+// 1 * 9 * 4 = 36
+// 1 * 3 * 4 = 12
+// 1 * 3 * 9 = 27
+// console.log(products([1, 3, 9, 4])); // [108, 36, 12, 27]
 
+// 11. 2D array // HAVE NOT SOLVED YET
+function array2D(grid) {
+    const inputGrid = grid;
+    let new2dArray = grid;
+
+    inputGrid.map((row, rowIndex) => {
+        row.map((number, numberIndex) => {
+            if (number === 0) {
+                new2dArray[rowIndex].forEach((num, index) => {
+                    new2dArray[rowIndex][index] = 0
+                })
+                new2dArray.forEach(ro => {
+                    ro[numberIndex] = 0
+                })
+            }
+        })
+    })
+    console.log(new2dArray);
+    return new2dArray;
 }
 
-console.log(products([1, 3, 9, 4]));
+const testGrid = [
+    [1,0,1,1,0],
+    [0,1,1,1,0],
+    [1,1,1,1,1],
+    [1,0,1,1,1],
+    [1,1,1,1,1]
+];
 
-// 11. 2D array
+// console.log(array2D(testGrid));
 
 // 12. String rotation
+function stringRotation(str1, str2) {
+
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < str2.length; i++) {
+        if (str2[i] === str1[0]) {
+            let subStr1 = str2.substring(0, i);
+            console.log(subStr1);
+            let subStr2 = str2.substring(i, str2.length);
+            console.log(subStr2);
+            let combineStrings = subStr2.concat(subStr1);
+
+            if (str1 === combineStrings) {
+                console.log(str1, combineStrings);
+                return true;
+            } 
+        }
+    }
+
+    return false;
+
+}
+// console.log(stringRotation('amazon', 'azonma')); // false
+// console.log(stringRotation('amazon', 'azonam')); // true
+// console.log(stringRotation('abcd', 'cdab')); // true
