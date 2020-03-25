@@ -69,7 +69,7 @@ function removeLessThanFive(arr) {
 
 // console.log(removeLessThanFive([1, 8, 3, 5, 6, 7, 2])) // [8, 5, 6, 7]
 
-// 7. Max sum in the array
+// 7. Max sum in the array: Polynomial time O(n^3)
 function maxSum(arr) {
     let sums = [];
     let max;
@@ -93,7 +93,7 @@ function maxSum(arr) {
 
 // console.log(maxSum([4, 6, -3, 5, -2, 1])); // 12
 
-// 8. Merge arrays
+// 8. Merge arrays: Linear time O(n)
 function mergeTwo(arr1, arr2) {
     let merge = [ ...arr1, ...arr2 ];
     merge.sort((a, b) => a - b);
@@ -102,7 +102,7 @@ function mergeTwo(arr1, arr2) {
 
 // console.log(mergeTwo([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
 
-// 9. Remove characters
+// 9. Remove characters: Linear time O(n)
 function removeCharacters(str, characters) {
     const strArr = [];
     const charaArr = [];
@@ -133,7 +133,7 @@ function removeCharacters(str, characters) {
 
 // console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
 
-// 10. Products
+// 10. Products: Linear time O(n)
 function products(arr) {
     const product = arr.map((num, i) => {
         const otherNums = arr.slice(0, i).concat(arr.slice((i + 1), (arr.length)));
@@ -148,7 +148,7 @@ function products(arr) {
 // 1 * 3 * 9 = 27
 // console.log(products([1, 3, 9, 4])); // [108, 36, 12, 27]
 
-// 11. 2D array // HAVE NOT SOLVED YET
+// 11. 2D array: polynomial time? // HAVE NOT SOLVED YET
 function array2D(grid) {
     const inputGrid = grid;
     let new2dArray = grid;
@@ -179,7 +179,7 @@ const testGrid = [
 
 // console.log(array2D(testGrid));
 
-// 12. String rotation
+// 12. String rotation: Linear time O(n)
 function stringRotation(str1, str2) {
 
     if (str1.length !== str2.length) {
